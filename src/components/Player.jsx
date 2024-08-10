@@ -5,7 +5,9 @@ export default function Player({ name, symbol }) {
 
   function handleEditClick() {
     // setIsEditing(isEditing ? false : true);
-    setIsEditing(!isEditing);
+    // setIsEditing(!isEditing);
+    setIsEditing(editing => !editing);
+    // function form is best practise to schedule a state update to true because of React
   }
 
   let playerName = <span className="player-name">{name}</span>;
