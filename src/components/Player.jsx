@@ -5,16 +5,20 @@ export default function Player({ initialName, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
-    // setIsEditing(isEditing ? false : true);
-    // setIsEditing(!isEditing);
     setIsEditing(editing => !editing);
-    // function form is best practise to schedule a state update to true because of React
+  }
+
+  function handleChange(event) {
+    console.log(event);
+    setPlayerName(event.target.value);
   }
 
   let editablePlayerName = <span className="player-name">{playerName}</span>;
 
   if (isEditing) {
-    playerName = <input type="text" required value={playerName} />;
+    playerName = (
+      <input type="text" required value={playerName} onChange={handleChange} />
+    );
   }
 
   return (
