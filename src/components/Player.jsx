@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export default function Player({ name, symbol }) {
-  const [isEditing, setIsEditing] = useState();
+  const [isEditing, setIsEditing] = useState(false);
 
-  function editName() {
+  function handleEditClick() {
     setIsEditing(true);
   }
 
@@ -11,10 +11,10 @@ export default function Player({ name, symbol }) {
     <li>
       <span className="player">
         {!isEditing && <span className="player-name">{name}</span>}
-        {isEditing && <input>{name}</input>}
+        {isEditing && <input />}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={editName}>Edit</button>
+      <button onClick={handleEditClick}>Edit</button>
     </li>
   );
 }
