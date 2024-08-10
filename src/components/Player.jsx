@@ -4,7 +4,8 @@ export default function Player({ name, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
-    setIsEditing(true);
+    if (!isEditing) setIsEditing(true);
+    else setIsEditing(false);
   }
 
   let playerName = <span className="player-name">{name}</span>;
